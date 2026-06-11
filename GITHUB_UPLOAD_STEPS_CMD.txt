@@ -1,0 +1,13 @@
+STEP 1: ZIP extract karo.
+STEP 2: Existing repo folder open karo CMD me:
+cd /d "C:\Users\Yash\Desktop\PorfolioSiteUdhavKhera"
+STEP 3: Fixed extracted files copy karo:
+xcopy "C:\Users\Yash\Downloads\Portfolio_WORK_SECTION_FIXED\*" "%cd%\" /E /H /Y
+STEP 4: Git status check:
+git status
+STEP 5: Add + commit + push:
+git add .
+git commit -m "Fix work section images"
+git push origin main
+Agar branch master ho:
+git push origin master
