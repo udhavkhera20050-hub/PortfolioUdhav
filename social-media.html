@@ -3,11 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./asset/css/style.css">
+
   <title>Social Media Posts — Udhav Khera</title>
+
+  <!-- Social Media Posts Image Size Fix -->
+  <style>
+    .gallery-section .vlog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+
+    .gallery-section .vlog-card {
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-section .vlog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .gallery-section .vlog-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #0f0f0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-section .vlog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-section .vlog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 18px;
+      }
+
+      .gallery-section .vlog-thumb {
+        aspect-ratio: 4 / 5;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-section .vlog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
@@ -15,15 +76,22 @@
 
   <header class="header" id="header">
     <a href="index.html" class="logo">UK<span>.</span></a>
+
     <nav class="nav">
       <a href="index.html" class="nav-link">Home</a>
       <a href="index.html#about" class="nav-link">About</a>
       <a href="index.html#work" class="nav-link active">Work</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
+
     <a href="contact.html" class="header-cta">Hire Me <i class="fas fa-arrow-right"></i></a>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
   </header>
+
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
     <a href="index.html#about">About</a>
@@ -34,7 +102,9 @@
 
   <div class="gallery-hero">
     <div class="gallery-hero-content">
-      <a href="index.html#work" class="back-link reveal"><i class="fas fa-arrow-left"></i> Back to Work</a>
+      <a href="index.html#work" class="back-link reveal">
+        <i class="fas fa-arrow-left"></i> Back to Work
+      </a>
       <h1 class="reveal">Social Media<br><em>Posts</em></h1>
       <p class="subtitle reveal">Scroll-stopping designs for brands &amp; content creators.</p>
     </div>
@@ -43,36 +113,67 @@
   <section class="gallery-section">
     <div class="container">
       <div class="vlog-grid">
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/Happy Navratri.png" alt="Happy Navratri" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/Happy Navratri.png" alt="Happy Navratri" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/video editing services.jpg" alt="Video Editing Services" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/video editing services.jpg" alt="Video Editing Services" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/happy ganesh chaturthi.png" alt="Happy Ganesh Chaturthi" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/happy ganesh chaturthi.png" alt="Happy Ganesh Chaturthi" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/Chhatrapati shivaji maharaj.jpg" alt="Chhatrapati Shivaji Maharaj" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/Chhatrapati shivaji maharaj.jpg" alt="Chhatrapati Shivaji Maharaj" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/it time for better frames.jpg" alt="It's Time for Better Frames" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/it time for better frames.jpg" alt="It's Time for Better Frames" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/sanju samson player of the tournament.jpg" alt="Sanju Samson - Player of the Tournament" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/sanju samson player of the tournament.jpg" alt="Sanju Samson - Player of the Tournament" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/sanjusamson.jpg" alt="Sanju Samson" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/sanjusamson.jpg" alt="Sanju Samson" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/JASPRIT BUMRAH.jpg" alt="Jasprit Bumrah" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/JASPRIT BUMRAH.jpg" alt="Jasprit Bumrah" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/happy navartri.jpg" alt="Happy Navratri 2" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/happy navartri.jpg" alt="Happy Navratri 2" loading="lazy">
+          </div>
         </div>
+
         <div class="vlog-card reveal">
-          <div class="vlog-thumb"><img src="./asset/images/SOCIAL MEDIA POST.png" alt="Social Media Post" loading="lazy"></div>
+          <div class="vlog-thumb">
+            <img src="./asset/images/SOCIAL MEDIA POST.png" alt="Social Media Post" loading="lazy">
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -80,10 +181,12 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
           <span class="logo">UK<span>.</span></span>
           <p>Graphic Designer based in Delhi, India. Available for freelance work.</p>
         </div>
+
         <div class="footer-links">
           <p class="footer-heading">Navigation</p>
           <a href="index.html">Home</a>
@@ -91,14 +194,25 @@
           <a href="index.html#work">Work</a>
           <a href="contact.html">Contact</a>
         </div>
+
         <div class="footer-social">
           <p class="footer-heading">Connect</p>
-          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
-          <a href="https://github.com/udhavkhera20050-hub" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="mailto:udhavkhera8@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+          </a>
+          <a href="https://github.com/udhavkhera20050-hub" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="mailto:udhavkhera8@gmail.com">
+            <i class="fas fa-envelope"></i> Email
+          </a>
         </div>
+
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 Udhav Khera. All designs by Udhav Graphics.</p></div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Udhav Khera. All designs by Udhav Graphics.</p>
+      </div>
     </div>
   </footer>
 
