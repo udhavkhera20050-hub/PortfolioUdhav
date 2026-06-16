@@ -5,263 +5,176 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./asset/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&display=swap" rel="stylesheet">
 
   <title>Website Banners — Udhav Khera</title>
 
-  <!-- Website Banner Gallery Fix CSS -->
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      overflow-x: hidden;
-    }
-
-    .gallery-section {
-      width: 100%;
-      padding: 80px 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    .gallery-section .container {
-      width: min(1200px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .gallery-section .vlog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-      align-items: start;
-    }
-
-    .gallery-section .vlog-card {
-      width: 100%;
-      border-radius: 22px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .gallery-section .vlog-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255, 107, 53, 0.35);
-      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
-    }
-
-    .gallery-section .vlog-thumb {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
       background: #0f0f0f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      color: white;
     }
 
-    .gallery-section .vlog-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    /* WORK CARD */
+    .work-card {
+      max-width: 350px;
+      margin: 40px auto;
+    }
+
+    .work-card-inner {
+      text-decoration: none;
+      color: white;
       display: block;
-      background: #0f0f0f;
-      transition: transform 0.35s ease;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
     }
 
-    .gallery-section .vlog-card:hover .vlog-thumb img {
-      transform: scale(1.03);
+    .work-card-inner:hover {
+      transform: translateY(-6px);
+      border-color: #ff6b35;
     }
 
-    .gallery-section .vlog-thumb.is-broken::after {
-      content: "Image not found - check file name/path";
+    .work-thumb {
+      position: relative;
+    }
+
+    .work-thumb img {
+      width: 100%;
+      display: block;
+    }
+
+    .work-overlay {
       position: absolute;
       inset: 0;
+      background: rgba(0,0,0,0.6);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      text-align: center;
-      color: #ffffff;
-      background: #151515;
-      font-family: "DM Sans", sans-serif;
-      font-size: 14px;
-      line-height: 1.4;
+      opacity: 0;
+      transition: 0.3s;
     }
 
-    @media (max-width: 992px) {
-      .gallery-section {
-        padding: 60px 0;
-      }
-
-      .gallery-section .vlog-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 24px;
-      }
+    .work-card-inner:hover .work-overlay {
+      opacity: 1;
     }
 
-    @media (max-width: 576px) {
-      .gallery-section .container {
-        width: min(100% - 28px, 1200px);
-      }
+    .work-meta {
+      padding: 15px;
+    }
 
-      .gallery-section .vlog-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+    .work-tag {
+      font-size: 12px;
+      color: #ff6b35;
+    }
 
-      .gallery-section .vlog-card {
-        border-radius: 18px;
-      }
+    /* GALLERY */
+    .gallery-section {
+      padding: 80px 20px;
+    }
 
-      .gallery-section .vlog-thumb {
-        aspect-ratio: 16 / 9;
-      }
+    .vlog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .vlog-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+
+    .vlog-thumb img {
+      width: 100%;
+      object-fit: contain;
     }
   </style>
 </head>
 
 <body>
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
-  <div class="noise"></div>
 
-  <header class="header" id="header">
-    <a href="index.html" class="logo">UK<span>.</span></a>
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="index.html#about" class="nav-link">About</a>
-      <a href="index.html#work" class="nav-link active">Work</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-    <a href="contact.html" class="header-cta">Hire Me <i class="fas fa-arrow-right"></i></a>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
-  </header>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#work">Work</a>
-    <a href="contact.html">Contact</a>
-    <a href="contact.html" class="mobile-cta">Hire Me</a>
-  </div>
-
-  <div class="gallery-hero">
-    <div class="gallery-hero-content">
-      <a href="index.html#work" class="back-link reveal">
-        <i class="fas fa-arrow-left"></i> Back to Work
-      </a>
-      <h1 class="reveal">Website<br><em>Banners</em></h1>
-      <p class="subtitle reveal">Professional banners crafted for brand identity &amp; web presence.</p>
-    </div>
-  </div>
-
-  <section class="gallery-section">
-    <div class="container">
-      <div class="vlog-grid">
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/CSS%20Tutorial.png" alt="CSS Tutorial" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
+  <!-- ✅ WORK CARD (TOP SECTION) -->
+  <article class="work-card">
+    <a href="#banners" class="work-card-inner">
+      <div class="work-thumb">
+        <img src="./asset/images/website.png" alt="Website Banners">
+        <div class="work-overlay">
+          <span>View Project <i class="fas fa-arrow-right"></i></span>
         </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/XML%20Tutorial.png" alt="XML Tutorial" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/Python%20tutorial.png" alt="Python Tutorial" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/Python%20Arrays.png" alt="Python Arrays" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/C%20Generics.jpg" alt="C Generics" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/CSharp%20Anonymous%20Function.png" alt="C# Anonymous Function" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/CSharp%20Anonymous%20Types.png" alt="C# Anonymous Types" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/CSharp%20Textwriter.png" alt="C# TextWriter" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
-        <div class="vlog-card reveal">
-          <div class="vlog-thumb">
-            <img src="./asset/images/website.png" alt="Website Banner" loading="lazy" onerror="this.closest('.vlog-thumb').classList.add('is-broken'); this.style.display='none';">
-          </div>
-        </div>
-
       </div>
+
+      <div class="work-meta">
+        <span class="work-tag">Web Design</span>
+        <h3>Website Banners</h3>
+        <p>Professional banners for brand identity and web presence.</p>
+      </div>
+    </a>
+  </article>
+
+  <!-- ✅ GALLERY SECTION -->
+  <section class="gallery-section" id="banners">
+    <div class="vlog-grid">
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/CSS%20Tutorial.png">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/XML%20Tutorial.png">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/Python%20tutorial.png">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/Python%20Arrays.png">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/C%20Generics.jpg">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/CSharp%20Anonymous%20Function.png">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/CSharp%20Anonymous%20Types.png">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/CSharp%20Textwriter.png">
+        </div>
+      </div>
+
+      <div class="vlog-card">
+        <div class="vlog-thumb">
+          <img src="./asset/images/website.png">
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-          <span class="logo">UK<span>.</span></span>
-          <p>Graphic Designer based in Delhi, India. Available for freelance work.</p>
-        </div>
-
-        <div class="footer-links">
-          <p class="footer-heading">Navigation</p>
-          <a href="index.html">Home</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#work">Work</a>
-          <a href="contact.html">Contact</a>
-        </div>
-
-        <div class="footer-social">
-          <p class="footer-heading">Connect</p>
-          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank">
-            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-          </a>
-          <a href="https://github.com/udhavkhera20050-hub" target="_blank">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a href="mailto:udhavkhera8@gmail.com">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 Udhav Khera. All designs by Udhav Graphics.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="./asset/js/main.js"></script>
 </body>
 </html>
