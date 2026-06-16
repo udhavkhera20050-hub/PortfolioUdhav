@@ -3,275 +3,216 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./asset/css/style.css">
-  <title>Udhav Khera | Graphic Designer</title>
-</head>
-<body>
 
+  <title>Social Media Posts — Udhav Khera</title>
+
+  <!-- Social Media Posts Image Size Fix -->
+  <style>
+    .gallery-section .vlog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+
+    .gallery-section .vlog-card {
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-section .vlog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .gallery-section .vlog-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #0f0f0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-section .vlog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-section .vlog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 18px;
+      }
+
+      .gallery-section .vlog-thumb {
+        aspect-ratio: 4 / 5;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-section .vlog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
   <div class="noise"></div>
 
-  <!-- Header -->
   <header class="header" id="header">
     <a href="index.html" class="logo">UK<span>.</span></a>
+
     <nav class="nav">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#work" class="nav-link">Work</a>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#work" class="nav-link active">Work</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
+
     <a href="contact.html" class="header-cta">Hire Me <i class="fas fa-arrow-right"></i></a>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#work">Work</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" class="mobile-cta">Hire Me</a>
   </div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-circle c1"></div>
-      <div class="hero-circle c2"></div>
-      <div class="grid-lines"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="dot"></span> Available for freelance work
-      </div>
-      <h1 class="hero-name reveal">
-        <span class="line">Udhav</span>
-        <span class="line accent-line">Khera<span class="dot-accent">.</span></span>
-      </h1>
-      <div class="hero-role reveal">
-        <span>I craft&nbsp;</span>
-        <div class="type-wrap">
-          <span id="typing" class="typed-text">Thumbnails</span>
-          <span class="cursor-blink">|</span>
-        </div>
-      </div>
-      <p class="hero-desc reveal">
-        Graphic Designer with 1+ year of experience creating eye-catching thumbnails,
-        social media posts, banners &amp; digital creatives that make brands impossible to ignore.
-      </p>
-      <div class="hero-actions reveal">
-        <a href="#work" class="btn-primary">View My Work <i class="fas fa-arrow-down"></i></a>
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank" class="social-ico"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://github.com/udhavkhera20050-hub" target="_blank" class="social-ico"><i class="fa-brands fa-github"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual reveal">
-      <div class="card-stack">
-        <div class="floating-card fc1"><i class="fas fa-palette"></i><span>Design</span></div>
-        <div class="floating-card fc2"><i class="fas fa-film"></i><span>Thumbnails</span></div>
-        <div class="floating-card fc3"><i class="fas fa-mobile-alt"></i><span>Social Media</span></div>
-        <div class="avatar-ring">
-          <div class="avatar-inner"><span class="avatar-initials">UK</span></div>
-          <svg class="ring-svg" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="url(#grad)" stroke-width="2" stroke-dasharray="8 6"/>
-            <defs>
-              <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#ff6b35"/>
-                <stop offset="100%" style="stop-color:#f7c59f"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div class="stat-chip s1"><strong>1+</strong><span>Year Exp</span></div>
-        <div class="stat-chip s2"><strong>50+</strong><span>Projects</span></div>
-      </div>
-    </div>
-
-    <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
-  </section>
-
-  <!-- Marquee -->
-  <div class="marquee-section">
-    <div class="marquee-track">
-      <span>YouTube Thumbnails</span><span class="sep">✦</span>
-      <span>Social Media Design</span><span class="sep">✦</span>
-      <span>Website Banners</span><span class="sep">✦</span>
-      <span>Fiverr Gig Images</span><span class="sep">✦</span>
-      <span>YouTube Thumbnails</span><span class="sep">✦</span>
+  <div class="gallery-hero">
+    <div class="gallery-hero-content">
+      <a href="index.html#work" class="back-link reveal">
+        <i class="fas fa-arrow-left"></i> Back to Work
+      </a>
+      <h1 class="reveal">Social Media<br><em>Posts</em></h1>
+      <p class="subtitle reveal">Scroll-stopping designs for brands &amp; content creators.</p>
     </div>
   </div>
 
-  <!-- About -->
-  <section id="about" class="about">
+  <section class="gallery-section">
     <div class="container">
-      <div class="section-label reveal"><span class="label-line"></span><span>About Me</span></div>
-      <div class="about-grid">
-        <div class="about-left reveal">
-          <h2 class="section-heading">Turning ideas into<br><em>visual stories</em></h2>
-          <p>I'm a professional Graphic Designer based in Delhi, India, specializing in <strong>YouTube thumbnails, social media posts, website banners</strong>, and <strong>Fiverr gig images</strong>.</p>
-          <p>I create high-quality visuals that help content stand out, attract clicks, and build a strong online brand presence that people remember.</p>
-          <div class="about-stats">
-            <div class="stat-box"><span class="stat-num">1+</span><span class="stat-lbl">Year Experience</span></div>
-            <div class="stat-box"><span class="stat-num">50+</span><span class="stat-lbl">Projects Done</span></div>
-            <div class="stat-box"><span class="stat-num">100%</span><span class="stat-lbl">Client Satisfaction</span></div>
-          </div>
-          <div class="about-btns">
-            <a href="#work" class="btn-primary">See My Work</a>
-            <a href="contact.html" class="btn-ghost">Let's Collaborate</a>
+      <div class="vlog-grid">
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/Happy Navratri.png" alt="Happy Navratri" loading="lazy">
           </div>
         </div>
-        <div class="about-right reveal">
-          <div class="skills-block">
-            <p class="skills-title">Tools &amp; Skills</p>
-            <div class="skill-pills">
-              <span>Adobe Photoshop</span>
-              <span>Canva</span>
-              <span>Thumbnail Design</span>
-              <span>Social Media</span>
-              <span>Typography</span>
-            </div>
-          </div>
-          <div class="services-list">
-            <div class="service-item">
-              <div class="service-icon"><i class="fas fa-play"></i></div>
-              <div><h4>YouTube Thumbnails</h4><p>Click-worthy thumbnails that boost your CTR and channel growth.</p></div>
-            </div>
-            <div class="service-item">
-              <div class="service-icon"><i class="fas fa-hashtag"></i></div>
-              <div><h4>Social Media Design</h4><p>Scroll-stopping posts for Instagram, Facebook &amp; more.</p></div>
-            </div>
-            <div class="service-item">
-              <div class="service-icon"><i class="fas fa-globe"></i></div>
-              <div><h4>Website Banners</h4><p>Professional banners that communicate your brand story.</p></div>
-            </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/video editing services.jpg" alt="Video Editing Services" loading="lazy">
           </div>
         </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/happy ganesh chaturthi.png" alt="Happy Ganesh Chaturthi" loading="lazy">
+          </div>
+        </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/Chhatrapati shivaji maharaj.jpg" alt="Chhatrapati Shivaji Maharaj" loading="lazy">
+          </div>
+        </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/it time for better frames.jpg" alt="It's Time for Better Frames" loading="lazy">
+          </div>
+        </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/sanju samson player of the tournament.jpg" alt="Sanju Samson - Player of the Tournament" loading="lazy">
+          </div>
+        </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/sanjusamson.jpg" alt="Sanju Samson" loading="lazy">
+          </div>
+        </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/JASPRIT BUMRAH.jpg" alt="Jasprit Bumrah" loading="lazy">
+          </div>
+        </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/happy navartri.jpg" alt="Happy Navratri 2" loading="lazy">
+          </div>
+        </div>
+
+        <div class="vlog-card reveal">
+          <div class="vlog-thumb">
+            <img src="./asset/images/SOCIAL MEDIA POST.png" alt="Social Media Post" loading="lazy">
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Work -->
-  <section id="work" class="work">
-    <div class="container">
-      <div class="section-label reveal"><span class="label-line"></span><span>Portfolio</span></div>
-      <div class="work-header reveal">
-        <h2 class="section-heading">Selected<br><em>Work</em></h2>
-        <p>A showcase of creative projects across thumbnails, banners, and social media designs.</p>
-      </div>
-      <div class="work-slider-wrap reveal">
-        <div class="work-slider-viewport">
-          <div class="work-slider-track" id="workTrack">
-
-            <article class="work-card">
-              <a href="Education.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/EDUCATION.png" alt="Education Thumbnails" loading="lazy">
-                  <div class="work-overlay"><span class="view-label">View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="work-meta">
-                  <span class="work-tag">Education</span>
-                  <h3>Education Thumbnails</h3>
-                  <p>Eye-catching thumbnails for educational YouTube channels.</p>
-                </div>
-              </a>
-            </article>
-
-            <article class="work-card">
-              <a href="finance.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/FINANCE THUMBNAILS.png" alt="Finance Thumbnails" loading="lazy">
-                  <div class="work-overlay"><span class="view-label">View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="work-meta">
-                  <span class="work-tag">Finance</span>
-                  <h3>Finance Thumbnails</h3>
-                  <p>High-impact thumbnails for finance &amp; investment channels.</p>
-                </div>
-              </a>
-            </article>
-
-            <article class="work-card">
-              <a href="website-banner.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/website.png" alt="Website Banners" loading="lazy">
-                  <div class="work-overlay"><span class="view-label">View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="work-meta">
-                  <span class="work-tag">Web Design</span>
-                  <h3>Website Banners</h3>
-                  <p>Professional banners for brand identity and web presence.</p>
-                </div>
-              </a>
-            </article>
-
-            <article class="work-card">
-              <a href="social-media.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/SOCIAL MEDIA POST.png" alt="Social Media Posts" loading="lazy">
-                  <div class="work-overlay"><span class="view-label">View Project <i class="fas fa-arrow-right"></i></span></div>
-                </div>
-                <div class="work-meta">
-                  <span class="work-tag">Social Media</span>
-                  <h3>Social Media Posts</h3>
-                  <p>Scroll-stopping creatives for brands &amp; content creators.</p>
-                </div>
-              </a>
-            </article>
-
-          </div><!-- /track -->
-        </div><!-- /viewport -->
-
-        <div class="slider-controls">
-          <button class="slider-btn" id="sliderPrev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
-          <div class="slider-dots" id="sliderDots"></div>
-          <button class="slider-btn" id="sliderNext" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
-        </div>
-
-      </div><!-- /slider-wrap -->
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-inner reveal">
-        <span class="cta-badge">Let's Create Together</span>
-        <h2>Have a project in mind?<br>Let's make it <em>happen.</em></h2>
-        <p>Whether you need a thumbnail, social media designs, or a full brand visual kit — I'm ready to bring your vision to life.</p>
-        <a href="contact.html" class="btn-primary btn-lg">Start a Project <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
           <span class="logo">UK<span>.</span></span>
           <p>Graphic Designer based in Delhi, India. Available for freelance work.</p>
         </div>
+
         <div class="footer-links">
           <p class="footer-heading">Navigation</p>
           <a href="index.html">Home</a>
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#work">Work</a>
           <a href="contact.html">Contact</a>
         </div>
+
         <div class="footer-social">
           <p class="footer-heading">Connect</p>
-          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
-          <a href="https://github.com/udhavkhera20050-hub" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="mailto:udhavkhera8@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+          </a>
+          <a href="https://github.com/udhavkhera20050-hub" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="mailto:udhavkhera8@gmail.com">
+            <i class="fas fa-envelope"></i> Email
+          </a>
         </div>
+
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 Udhav Khera. All designs by Udhav Graphics.</p></div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Udhav Khera. All designs by Udhav Graphics.</p>
+      </div>
     </div>
   </footer>
 
