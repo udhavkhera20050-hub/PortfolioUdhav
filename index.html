@@ -10,157 +10,235 @@
 
   <title>Udhav Khera | Graphic Designer</title>
 
-  <!-- Work Section Image Size Fix CSS -->
+  <!-- Work Section Proper Fix CSS -->
   <style>
     .work {
-      overflow: hidden;
+      overflow: visible !important;
+      padding: 120px 0;
+    }
+
+    .work .container {
+      width: min(100% - 60px, 1320px) !important;
+      max-width: 1320px !important;
+      margin: 0 auto !important;
     }
 
     .work-slider-wrap {
       width: 100%;
       position: relative;
+      margin-top: 50px;
+      overflow: visible !important;
     }
 
     .work-slider-viewport {
       width: 100%;
-      overflow: hidden;
+      overflow: visible !important;
     }
 
     .work-slider-track {
-      display: flex;
-      gap: 28px;
-      align-items: stretch;
+      display: flex !important;
+      gap: 24px !important;
+      align-items: stretch !important;
       transition: transform 0.45s ease;
       will-change: transform;
+      width: 100%;
     }
 
     .work-card {
-      flex: 0 0 calc((100% - 84px) / 4);
-      min-width: 260px;
-      height: auto;
+      flex: 0 0 calc((100% - 72px) / 4) !important;
+      min-width: 0 !important;
+      min-height: 390px !important;
     }
 
     .work-card-inner {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      text-decoration: none;
-      color: inherit;
-      border-radius: 24px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      text-decoration: none !important;
+      color: inherit !important;
+      border-radius: 20px !important;
+      overflow: hidden !important;
+      background: rgba(255, 255, 255, 0.045) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.22) !important;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
     }
 
     .work-card-inner:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      transform: translateY(-10px) !important;
+      border-color: rgba(255, 107, 53, 0.45) !important;
+      box-shadow: 0 26px 65px rgba(0, 0, 0, 0.42) !important;
     }
 
     .work-thumb {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      background: #0f0f0f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative !important;
+      width: 100% !important;
+      height: 150px !important;
+      overflow: hidden !important;
+      background: #101010 !important;
+      flex-shrink: 0 !important;
     }
 
     .work-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.4s ease;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.45s ease, filter 0.45s ease !important;
     }
 
     .work-card-inner:hover .work-thumb img {
-      transform: scale(1.04);
+      transform: scale(1.08) !important;
+      filter: brightness(0.8) !important;
     }
 
     .work-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.45);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      position: absolute !important;
+      inset: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: rgba(0, 0, 0, 0.48) !important;
+      opacity: 0 !important;
+      transition: opacity 0.35s ease !important;
+      z-index: 2 !important;
     }
 
     .work-card-inner:hover .work-overlay {
-      opacity: 1;
+      opacity: 1 !important;
     }
 
     .view-label {
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      backdrop-filter: blur(10px);
-      font-size: 14px;
-      font-weight: 500;
+      padding: 10px 18px !important;
+      border-radius: 999px !important;
+      background: rgba(255, 255, 255, 0.16) !important;
+      color: #fff !important;
+      backdrop-filter: blur(10px) !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
     }
 
     .work-meta {
-      padding: 22px;
-      min-height: 190px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      padding: 24px !important;
+      min-height: 210px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      flex: 1 !important;
     }
 
     .work-tag {
-      display: inline-block;
-      width: fit-content;
-      margin-bottom: 12px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(255, 107, 53, 0.12);
-      color: #ff6b35;
-      font-size: 12px;
-      line-height: 1;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      display: inline-block !important;
+      width: fit-content !important;
+      margin-bottom: 14px !important;
+      padding: 7px 14px !important;
+      border-radius: 999px !important;
+      background: rgba(255, 107, 53, 0.14) !important;
+      color: #ff6b35 !important;
+      font-size: 12px !important;
+      line-height: 1 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      font-weight: 600 !important;
     }
 
     .work-meta h3 {
-      margin: 0 0 10px;
-      line-height: 1.1;
+      margin: 0 0 12px !important;
+      font-size: 21px !important;
+      line-height: 1.15 !important;
+      color: #fff !important;
     }
 
     .work-meta p {
-      margin: 0;
-      line-height: 1.55;
+      margin: 0 !important;
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+      color: rgba(255, 255, 255, 0.68) !important;
     }
 
-    @media (max-width: 1100px) {
-      .work-card {
-        flex-basis: calc((100% - 28px) / 2);
-      }
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 36px;
     }
 
-    @media (max-width: 640px) {
-      .work-slider-track {
-        gap: 18px;
-      }
+    .slider-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
 
+    .slider-btn:hover {
+      background: #ff6b35;
+      border-color: #ff6b35;
+      transform: translateY(-3px);
+    }
+
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slider-dots button,
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+    }
+
+    .slider-dots button.active,
+    .slider-dot.active {
+      width: 22px;
+      border-radius: 999px;
+      background: #ff6b35;
+    }
+
+    @media (max-width: 1150px) {
       .work-card {
-        flex: 0 0 88%;
-        min-width: 240px;
+        flex: 0 0 calc((100% - 24px) / 2) !important;
       }
 
       .work-thumb {
-        aspect-ratio: 16 / 9;
+        height: 170px !important;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .work {
+        padding: 80px 0;
+      }
+
+      .work .container {
+        width: min(100% - 32px, 100%) !important;
+      }
+
+      .work-slider-track {
+        gap: 18px !important;
+      }
+
+      .work-card {
+        flex: 0 0 88% !important;
+        min-height: 360px !important;
+      }
+
+      .work-thumb {
+        height: 155px !important;
       }
 
       .work-meta {
-        padding: 18px;
-        min-height: 165px;
+        padding: 20px !important;
+        min-height: 185px !important;
       }
     }
   </style>
