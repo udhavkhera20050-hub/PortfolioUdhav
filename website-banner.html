@@ -5,176 +5,354 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <title>Website Banners | Udhav Khera</title>
+
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: "DM Sans", sans-serif;
-      background: #0f0f0f;
-      color: white;
+      background: #0b0b0b;
+      color: #ffffff;
+      overflow-x: hidden;
     }
 
-    /* WORK CARD */
-    .work-card {
-      max-width: 350px;
-      margin: 40px auto;
-    }
-
-    .work-card-inner {
-      text-decoration: none;
-      color: white;
-      display: block;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.3s;
-    }
-
-    .work-card-inner:hover {
-      transform: translateY(-6px);
-      border-color: #ff6b35;
-    }
-
-    .work-thumb {
-      position: relative;
-    }
-
-    .work-thumb img {
-      width: 100%;
-      display: block;
-    }
-
-    .work-overlay {
-      position: absolute;
+    body::before {
+      content: "";
+      position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.6);
-      display: flex;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 107, 53, 0.16), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06), transparent 35%),
+        linear-gradient(180deg, #101010 0%, #070707 100%);
+      z-index: -1;
+    }
+
+    .page-header {
+      width: min(100% - 50px, 1200px);
+      margin: 0 auto;
+      padding: 60px 0 25px;
+    }
+
+    .back-btn {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: 0.3s;
+      gap: 10px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+      margin-bottom: 35px;
+      transition: 0.3s ease;
     }
 
-    .work-card-inner:hover .work-overlay {
-      opacity: 1;
+    .back-btn:hover {
+      color: #ff6b35;
+      transform: translateX(-4px);
     }
 
-    .work-meta {
-      padding: 15px;
+    .project-tag {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 107, 53, 0.14);
+      color: #ff6b35;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
-    .work-tag {
-      font-size: 12px;
+    .page-title {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .page-title span {
       color: #ff6b35;
     }
 
-    /* GALLERY */
+    .page-desc {
+      max-width: 620px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
     .gallery-section {
-      padding: 80px 20px;
+      width: min(100% - 50px, 1200px);
+      margin: 0 auto;
+      padding: 35px 0 90px;
     }
 
     .vlog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
 
     .vlog-card {
-      border-radius: 20px;
+      position: relative;
+      border-radius: 22px;
       overflow: hidden;
-      background: #1a1a1a;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+      transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+    }
+
+    .vlog-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255, 107, 53, 0.55);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.48);
+    }
+
+    .vlog-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #111111;
     }
 
     .vlog-thumb img {
       width: 100%;
-      object-fit: contain;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.45s ease, filter 0.45s ease;
+    }
+
+    .vlog-card:hover .vlog-thumb img {
+      transform: scale(1.08);
+      filter: brightness(0.72);
+    }
+
+    .vlog-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 2;
+    }
+
+    .vlog-card:hover .vlog-overlay {
+      opacity: 1;
+    }
+
+    .view-design {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      backdrop-filter: blur(12px);
+      transform: translateY(12px);
+      transition: transform 0.35s ease;
+    }
+
+    .vlog-card:hover .view-design {
+      transform: translateY(0);
+    }
+
+    .vlog-info {
+      padding: 18px 20px 20px;
+    }
+
+    .vlog-info h3 {
+      font-size: 18px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .vlog-info p {
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 950px) {
+      .vlog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-header,
+      .gallery-section {
+        width: min(100% - 30px, 100%);
+      }
+
+      .page-header {
+        padding-top: 40px;
+      }
+
+      .vlog-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .page-desc {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <article class="work-card">
-              <a href="./website-banner.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/website.png" alt="Website Banners" loading="lazy">
-                  <div class="work-overlay">
-                    <span class="view-label">View Project <i class="fas fa-arrow-right"></i></span>
-                  </div>
-                </div>
-
-                <div class="work-meta">
-                  <span class="work-tag">Web Design</span>
-                  <h3>Website Banners</h3>
-                  <p>Professional banners for brand identity and web presence.</p>
-                </div>
-              </a>
-            </article>
-
-      <div class="work-meta">
-        <span class="work-tag">Web Design</span>
-        <h3>Website Banners</h3>
-        <p>Professional banners for brand identity and web presence.</p>
-      </div>
+  <header class="page-header">
+    <a href="./index.html#work" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      Back to Work
     </a>
-  </article>
 
-  <!-- ✅ GALLERY SECTION -->
+    <span class="project-tag">Web Design</span>
+
+    <h1 class="page-title">
+      Website <span>Banners</span>
+    </h1>
+
+    <p class="page-desc">
+      A collection of professional website banner designs created for tutorials,
+      programming content, and digital learning platforms.
+    </p>
+  </header>
+
   <section class="gallery-section" id="banners">
     <div class="vlog-grid">
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/CSS%20Tutorial.png">
+          <img src="./asset/images/CSS%20Tutorial.png" alt="CSS Tutorial Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>CSS Tutorial Banner</h3>
+          <p>Clean tutorial-style website banner design.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/XML%20Tutorial.png">
+          <img src="./asset/images/XML%20Tutorial.png" alt="XML Tutorial Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>XML Tutorial Banner</h3>
+          <p>Professional banner for programming content.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/Python%20tutorial.png">
+          <img src="./asset/images/Python%20tutorial.png" alt="Python Tutorial Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>Python Tutorial Banner</h3>
+          <p>Modern educational web banner design.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/Python%20Arrays.png">
+          <img src="./asset/images/Python%20Arrays.png" alt="Python Arrays Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>Python Arrays Banner</h3>
+          <p>Banner focused on Python learning topics.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/C%20Generics.jpg">
+          <img src="./asset/images/C%20Generics.jpg" alt="C Generics Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>C# Generics Banner</h3>
+          <p>Programming tutorial website banner concept.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/CSharp%20Anonymous%20Function.png">
+          <img src="./asset/images/CSharp%20Anonymous%20Function.png" alt="CSharp Anonymous Function Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>C# Anonymous Function</h3>
+          <p>Tech tutorial banner with professional styling.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/CSharp%20Anonymous%20Types.png">
+          <img src="./asset/images/CSharp%20Anonymous%20Types.png" alt="CSharp Anonymous Types Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>C# Anonymous Types</h3>
+          <p>Website banner for coding education content.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/CSharp%20Textwriter.png">
+          <img src="./asset/images/CSharp%20Textwriter.png" alt="CSharp Textwriter Banner">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>C# TextWriter Banner</h3>
+          <p>Dark tech style banner for programming topics.</p>
         </div>
       </div>
 
       <div class="vlog-card">
         <div class="vlog-thumb">
-          <img src="./asset/images/website.png">
+          <img src="./asset/images/website.png" alt="Website Banner Design">
+          <div class="vlog-overlay">
+            <span class="view-design">View Design <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="vlog-info">
+          <h3>Website Banner</h3>
+          <p>Portfolio banner design for web presence.</p>
         </div>
       </div>
 
