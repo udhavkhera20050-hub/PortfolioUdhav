@@ -1,610 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  /* WORK SECTION - LANDSCAPE ONE LINE FIX */
+  .work {
+    overflow: visible !important;
+    padding: 110px 0 !important;
+  }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./asset/css/style.css">
+  .work .container {
+    width: min(100% - 40px, 1380px) !important;
+    max-width: 1380px !important;
+    margin: 0 auto !important;
+  }
 
-  <title>Udhav Khera | Graphic Designer</title>
+  .work-slider-wrap {
+    width: 100% !important;
+    position: relative !important;
+    margin-top: 42px !important;
+    overflow: visible !important;
+  }
 
-  <!-- Work Section Landscape Card Fix -->
-  <style>
-    .work {
-      overflow: visible !important;
-      padding: 120px 0 !important;
-    }
+  .work-slider-viewport {
+    width: 100% !important;
+    overflow: visible !important;
+  }
 
-    .work .container {
-      width: min(100% - 60px, 1250px) !important;
-      max-width: 1250px !important;
-      margin: 0 auto !important;
-    }
+  .work-slider-track {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    width: 100% !important;
+    transform: none !important;
+    transition: none !important;
+  }
 
-    .work-slider-wrap {
-      width: 100% !important;
-      position: relative !important;
-      margin-top: 50px !important;
-      overflow: visible !important;
-    }
+  .work-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 285px !important;
+    flex: none !important;
+  }
 
-    .work-slider-viewport {
-      width: 100% !important;
-      overflow: visible !important;
-    }
+  .work-card-inner {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    background: rgba(255, 255, 255, 0.045) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  }
 
+  .work-card-inner:hover {
+    transform: translateY(-6px) !important;
+    border-color: rgba(255, 107, 53, 0.45) !important;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.36) !important;
+  }
+
+  .work-thumb {
+    position: relative !important;
+    width: 100% !important;
+    height: 150px !important;
+    overflow: hidden !important;
+    background: #101010 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .work-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.4s ease, filter 0.4s ease !important;
+  }
+
+  .work-card-inner:hover .work-thumb img {
+    transform: scale(1.06) !important;
+    filter: brightness(0.78) !important;
+  }
+
+  .work-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.42) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 2 !important;
+  }
+
+  .work-card-inner:hover .work-overlay {
+    opacity: 1 !important;
+  }
+
+  .view-label {
+    padding: 8px 15px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+
+  .work-meta {
+    padding: 14px 16px 16px !important;
+    min-height: 135px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    flex: 1 !important;
+  }
+
+  .work-tag {
+    display: inline-block !important;
+    width: fit-content !important;
+    margin-bottom: 10px !important;
+    padding: 6px 11px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 107, 53, 0.14) !important;
+    color: #ff6b35 !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+  }
+
+  .work-meta h3 {
+    margin: 0 0 8px !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+
+  .work-meta p {
+    margin: 0 !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+    color: rgba(255, 255, 255, 0.74) !important;
+  }
+
+  .slider-controls {
+    display: none !important;
+  }
+
+  @media (max-width: 1200px) {
     .work-slider-track {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 28px !important;
-      width: 100% !important;
-      transform: none !important;
-      transition: none !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
 
     .work-card {
-      width: 100% !important;
-      min-width: 0 !important;
-      height: 245px !important;
-      flex: none !important;
+      height: 300px !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .work {
+      padding: 80px 0 !important;
     }
 
-    .work-card-inner {
-      width: 100% !important;
-      height: 100% !important;
-      display: grid !important;
-      grid-template-columns: 54% 46% !important;
-      text-decoration: none !important;
-      color: inherit !important;
-      border-radius: 22px !important;
-      overflow: hidden !important;
-      background: rgba(255, 255, 255, 0.045) !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25) !important;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
+    .work .container {
+      width: min(100% - 24px, 100%) !important;
     }
 
-    .work-card-inner:hover {
-      transform: translateY(-8px) !important;
-      border-color: rgba(255, 107, 53, 0.55) !important;
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45) !important;
+    .work-slider-track {
+      grid-template-columns: 1fr !important;
+      gap: 18px !important;
+    }
+
+    .work-card {
+      height: auto !important;
     }
 
     .work-thumb {
-      position: relative !important;
-      width: 100% !important;
-      height: 100% !important;
-      overflow: hidden !important;
-      background: #101010 !important;
-    }
-
-    .work-thumb img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      display: block !important;
-      transition: transform 0.45s ease, filter 0.45s ease !important;
-    }
-
-    .work-card-inner:hover .work-thumb img {
-      transform: scale(1.08) !important;
-      filter: brightness(0.78) !important;
-    }
-
-    .work-overlay {
-      position: absolute !important;
-      inset: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      background: rgba(0, 0, 0, 0.45) !important;
-      opacity: 0 !important;
-      transition: opacity 0.35s ease !important;
-      z-index: 2 !important;
-    }
-
-    .work-card-inner:hover .work-overlay {
-      opacity: 1 !important;
-    }
-
-    .view-label {
-      padding: 10px 18px !important;
-      border-radius: 999px !important;
-      background: rgba(255, 255, 255, 0.16) !important;
-      color: #fff !important;
-      backdrop-filter: blur(10px) !important;
-      font-size: 14px !important;
-      font-weight: 600 !important;
+      height: 170px !important;
     }
 
     .work-meta {
-      padding: 26px 24px !important;
-      height: 100% !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      background: linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025)) !important;
+      min-height: auto !important;
+      padding: 14px !important;
     }
-
-    .work-tag {
-      display: inline-block !important;
-      width: fit-content !important;
-      margin-bottom: 14px !important;
-      padding: 7px 14px !important;
-      border-radius: 999px !important;
-      background: rgba(255, 107, 53, 0.14) !important;
-      color: #ff6b35 !important;
-      font-size: 12px !important;
-      line-height: 1 !important;
-      letter-spacing: 0.06em !important;
-      text-transform: uppercase !important;
-      font-weight: 600 !important;
-    }
-
-    .work-meta h3 {
-      margin: 0 0 12px !important;
-      font-size: 23px !important;
-      line-height: 1.15 !important;
-      color: #fff !important;
-    }
-
-    .work-meta p {
-      margin: 0 !important;
-      font-size: 15px !important;
-      line-height: 1.6 !important;
-      color: rgba(255, 255, 255, 0.68) !important;
-    }
-
-    .slider-controls {
-      display: none !important;
-    }
-
-    @media (max-width: 950px) {
-      .work-slider-track {
-        grid-template-columns: 1fr !important;
-      }
-
-      .work-card {
-        height: 250px !important;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .work {
-        padding: 80px 0 !important;
-      }
-
-      .work .container {
-        width: min(100% - 32px, 100%) !important;
-      }
-
-      .work-card {
-        height: auto !important;
-      }
-
-      .work-card-inner {
-        grid-template-columns: 1fr !important;
-      }
-
-      .work-thumb {
-        height: 190px !important;
-      }
-
-      .work-meta {
-        padding: 22px !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
-  <div class="noise"></div>
-
-  <!-- Header -->
-  <header class="header" id="header">
-    <a href="index.html" class="logo">UK<span>.</span></a>
-
-    <nav class="nav">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#work" class="nav-link">Work</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-
-    <a href="contact.html" class="header-cta">Hire Me <i class="fas fa-arrow-right"></i></a>
-
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="contact.html">Contact</a>
-    <a href="contact.html" class="mobile-cta">Hire Me</a>
-  </div>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-circle c1"></div>
-      <div class="hero-circle c2"></div>
-      <div class="grid-lines"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="dot"></span> Available for freelance work
-      </div>
-
-      <h1 class="hero-name reveal">
-        <span class="line">Udhav</span>
-        <span class="line accent-line">Khera<span class="dot-accent">.</span></span>
-      </h1>
-
-      <div class="hero-role reveal">
-        <span>I craft&nbsp;</span>
-        <div class="type-wrap">
-          <span id="typing" class="typed-text">Thumbnails</span>
-          <span class="cursor-blink">|</span>
-        </div>
-      </div>
-
-      <p class="hero-desc reveal">
-        Graphic Designer with 1+ year of experience creating eye-catching thumbnails,
-        social media posts, banners &amp; digital creatives that make brands impossible to ignore.
-      </p>
-
-      <div class="hero-actions reveal">
-        <a href="#work" class="btn-primary">View My Work <i class="fas fa-arrow-down"></i></a>
-
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank" class="social-ico">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/udhavkhera20050-hub" target="_blank" class="social-ico">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual reveal">
-      <div class="card-stack">
-
-        <div class="floating-card fc1">
-          <i class="fas fa-palette"></i>
-          <span>Design</span>
-        </div>
-
-        <div class="floating-card fc2">
-          <i class="fas fa-film"></i>
-          <span>Thumbnails</span>
-        </div>
-
-        <div class="floating-card fc3">
-          <i class="fas fa-mobile-alt"></i>
-          <span>Social Media</span>
-        </div>
-
-        <div class="avatar-ring">
-          <div class="avatar-inner">
-            <span class="avatar-initials">UK</span>
-          </div>
-
-          <svg class="ring-svg" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="url(#grad)" stroke-width="2" stroke-dasharray="8 6"/>
-            <defs>
-              <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#ff6b35"/>
-                <stop offset="100%" style="stop-color:#f7c59f"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
-        <div class="stat-chip s1">
-          <strong>1+</strong>
-          <span>Year Exp</span>
-        </div>
-
-        <div class="stat-chip s2">
-          <strong>50+</strong>
-          <span>Projects</span>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- Marquee -->
-  <div class="marquee-section">
-    <div class="marquee-track">
-      <span>YouTube Thumbnails</span><span class="sep">✦</span>
-      <span>Social Media Design</span><span class="sep">✦</span>
-      <span>Website Banners</span><span class="sep">✦</span>
-      <span>Fiverr Gig Images</span><span class="sep">✦</span>
-      <span>YouTube Thumbnails</span><span class="sep">✦</span>
-    </div>
-  </div>
-
-  <!-- About -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="section-label reveal">
-        <span class="label-line"></span>
-        <span>About Me</span>
-      </div>
-
-      <div class="about-grid">
-
-        <div class="about-left reveal">
-          <h2 class="section-heading">Turning ideas into<br><em>visual stories</em></h2>
-
-          <p>
-            I'm a professional Graphic Designer based in Delhi, India, specializing in
-            <strong>YouTube thumbnails, social media posts, website banners</strong>, and
-            <strong>Fiverr gig images</strong>.
-          </p>
-
-          <p>
-            I create high-quality visuals that help content stand out, attract clicks,
-            and build a strong online brand presence that people remember.
-          </p>
-
-          <div class="about-stats">
-            <div class="stat-box">
-              <span class="stat-num">1+</span>
-              <span class="stat-lbl">Year Experience</span>
-            </div>
-
-            <div class="stat-box">
-              <span class="stat-num">50+</span>
-              <span class="stat-lbl">Projects Done</span>
-            </div>
-
-            <div class="stat-box">
-              <span class="stat-num">100%</span>
-              <span class="stat-lbl">Client Satisfaction</span>
-            </div>
-          </div>
-
-          <div class="about-btns">
-            <a href="#work" class="btn-primary">See My Work</a>
-            <a href="contact.html" class="btn-ghost">Let's Collaborate</a>
-          </div>
-        </div>
-
-        <div class="about-right reveal">
-          <div class="skills-block">
-            <p class="skills-title">Tools &amp; Skills</p>
-
-            <div class="skill-pills">
-              <span>Adobe Photoshop</span>
-              <span>Canva</span>
-              <span>Thumbnail Design</span>
-              <span>Social Media</span>
-              <span>Typography</span>
-            </div>
-          </div>
-
-          <div class="services-list">
-
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="fas fa-play"></i>
-              </div>
-              <div>
-                <h4>YouTube Thumbnails</h4>
-                <p>Click-worthy thumbnails that boost your CTR and channel growth.</p>
-              </div>
-            </div>
-
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="fas fa-hashtag"></i>
-              </div>
-              <div>
-                <h4>Social Media Design</h4>
-                <p>Scroll-stopping posts for Instagram, Facebook &amp; more.</p>
-              </div>
-            </div>
-
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="fas fa-globe"></i>
-              </div>
-              <div>
-                <h4>Website Banners</h4>
-                <p>Professional banners that communicate your brand story.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Work -->
-  <section id="work" class="work">
-    <div class="container">
-
-      <div class="section-label reveal">
-        <span class="label-line"></span>
-        <span>Portfolio</span>
-      </div>
-
-      <div class="work-header reveal">
-        <h2 class="section-heading">Selected<br><em>Work</em></h2>
-        <p>A showcase of creative projects across thumbnails, banners, and social media designs.</p>
-      </div>
-
-      <div class="work-slider-wrap reveal">
-        <div class="work-slider-viewport">
-          <div class="work-slider-track" id="workTrack">
-
-            <article class="work-card">
-              <a href="./Education.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/EDUCATION.png" alt="Education Thumbnails" loading="lazy">
-                  <div class="work-overlay">
-                    <span class="view-label">View Project <i class="fas fa-arrow-right"></i></span>
-                  </div>
-                </div>
-
-                <div class="work-meta">
-                  <span class="work-tag">Education</span>
-                  <h3>Education Thumbnails</h3>
-                  <p>Eye-catching thumbnails for educational YouTube channels.</p>
-                </div>
-              </a>
-            </article>
-
-            <article class="work-card">
-              <a href="./finance.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/FINANCE THUMBNAILS.png" alt="Finance Thumbnails" loading="lazy">
-                  <div class="work-overlay">
-                    <span class="view-label">View Project <i class="fas fa-arrow-right"></i></span>
-                  </div>
-                </div>
-
-                <div class="work-meta">
-                  <span class="work-tag">Finance</span>
-                  <h3>Finance Thumbnails</h3>
-                  <p>High-impact thumbnails for finance &amp; investment channels.</p>
-                </div>
-              </a>
-            </article>
-
-            <article class="work-card">
-              <a href="./website-banner.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/website.png" alt="Website Banners" loading="lazy">
-                  <div class="work-overlay">
-                    <span class="view-label">View Project <i class="fas fa-arrow-right"></i></span>
-                  </div>
-                </div>
-
-                <div class="work-meta">
-                  <span class="work-tag">Web Design</span>
-                  <h3>Website Banners</h3>
-                  <p>Professional banners for brand identity and web presence.</p>
-                </div>
-              </a>
-            </article>
-
-            <article class="work-card">
-              <a href="./social-media.html" class="work-card-inner">
-                <div class="work-thumb">
-                  <img src="./asset/images/SOCIAL MEDIA POST.png" alt="Social Media Posts" loading="lazy">
-                  <div class="work-overlay">
-                    <span class="view-label">View Project <i class="fas fa-arrow-right"></i></span>
-                  </div>
-                </div>
-
-                <div class="work-meta">
-                  <span class="work-tag">Social Media</span>
-                  <h3>Social Media Posts</h3>
-                  <p>Scroll-stopping creatives for brands &amp; content creators.</p>
-                </div>
-              </a>
-            </article>
-
-          </div>
-        </div>
-
-        <div class="slider-controls">
-          <button class="slider-btn" id="sliderPrev" aria-label="Previous">
-            <i class="fas fa-arrow-left"></i>
-          </button>
-
-          <div class="slider-dots" id="sliderDots"></div>
-
-          <button class="slider-btn" id="sliderNext" aria-label="Next">
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-inner reveal">
-        <span class="cta-badge">Let's Create Together</span>
-        <h2>Have a project in mind?<br>Let's make it <em>happen.</em></h2>
-        <p>
-          Whether you need a thumbnail, social media designs, or a full brand visual kit —
-          I'm ready to bring your vision to life.
-        </p>
-
-        <a href="contact.html" class="btn-primary btn-lg">
-          Start a Project <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-          <span class="logo">UK<span>.</span></span>
-          <p>Graphic Designer based in Delhi, India. Available for freelance work.</p>
-        </div>
-
-        <div class="footer-links">
-          <p class="footer-heading">Navigation</p>
-          <a href="index.html">Home</a>
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="contact.html">Contact</a>
-        </div>
-
-        <div class="footer-social">
-          <p class="footer-heading">Connect</p>
-
-          <a href="https://www.linkedin.com/in/udhav-khera-a5574b271/" target="_blank">
-            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-          </a>
-
-          <a href="https://github.com/udhavkhera20050-hub" target="_blank">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-
-          <a href="mailto:udhavkhera8@gmail.com">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 Udhav Khera. All designs by Udhav Graphics.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="./asset/js/main.js"></script>
-</body>
-</html>
+  }
+</style>
