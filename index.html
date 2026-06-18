@@ -10,73 +10,74 @@
 
   <title>Udhav Khera | Graphic Designer</title>
 
-  <!-- Work Section Proper Fix CSS -->
+  <!-- Work Section Landscape Card Fix -->
   <style>
     .work {
       overflow: visible !important;
-      padding: 120px 0;
+      padding: 120px 0 !important;
     }
 
     .work .container {
-      width: min(100% - 60px, 1320px) !important;
-      max-width: 1320px !important;
+      width: min(100% - 60px, 1250px) !important;
+      max-width: 1250px !important;
       margin: 0 auto !important;
     }
 
     .work-slider-wrap {
-      width: 100%;
-      position: relative;
-      margin-top: 50px;
+      width: 100% !important;
+      position: relative !important;
+      margin-top: 50px !important;
       overflow: visible !important;
     }
 
     .work-slider-viewport {
-      width: 100%;
+      width: 100% !important;
       overflow: visible !important;
     }
 
     .work-slider-track {
-      display: flex !important;
-      gap: 24px !important;
-      align-items: stretch !important;
-      transition: transform 0.45s ease;
-      will-change: transform;
-      width: 100%;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 28px !important;
+      width: 100% !important;
+      transform: none !important;
+      transition: none !important;
     }
 
     .work-card {
-      flex: 0 0 calc((100% - 72px) / 4) !important;
+      width: 100% !important;
       min-width: 0 !important;
-      min-height: 390px !important;
+      height: 245px !important;
+      flex: none !important;
     }
 
     .work-card-inner {
-      display: flex !important;
-      flex-direction: column !important;
+      width: 100% !important;
       height: 100% !important;
+      display: grid !important;
+      grid-template-columns: 54% 46% !important;
       text-decoration: none !important;
       color: inherit !important;
-      border-radius: 20px !important;
+      border-radius: 22px !important;
       overflow: hidden !important;
       background: rgba(255, 255, 255, 0.045) !important;
       border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.22) !important;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25) !important;
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
     }
 
     .work-card-inner:hover {
-      transform: translateY(-10px) !important;
-      border-color: rgba(255, 107, 53, 0.45) !important;
-      box-shadow: 0 26px 65px rgba(0, 0, 0, 0.42) !important;
+      transform: translateY(-8px) !important;
+      border-color: rgba(255, 107, 53, 0.55) !important;
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45) !important;
     }
 
     .work-thumb {
       position: relative !important;
       width: 100% !important;
-      height: 150px !important;
+      height: 100% !important;
       overflow: hidden !important;
       background: #101010 !important;
-      flex-shrink: 0 !important;
     }
 
     .work-thumb img {
@@ -89,7 +90,7 @@
 
     .work-card-inner:hover .work-thumb img {
       transform: scale(1.08) !important;
-      filter: brightness(0.8) !important;
+      filter: brightness(0.78) !important;
     }
 
     .work-overlay {
@@ -98,7 +99,7 @@
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      background: rgba(0, 0, 0, 0.48) !important;
+      background: rgba(0, 0, 0, 0.45) !important;
       opacity: 0 !important;
       transition: opacity 0.35s ease !important;
       z-index: 2 !important;
@@ -119,12 +120,12 @@
     }
 
     .work-meta {
-      padding: 24px !important;
-      min-height: 210px !important;
+      padding: 26px 24px !important;
+      height: 100% !important;
       display: flex !important;
       flex-direction: column !important;
-      justify-content: flex-start !important;
-      flex: 1 !important;
+      justify-content: center !important;
+      background: linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025)) !important;
     }
 
     .work-tag {
@@ -144,7 +145,7 @@
 
     .work-meta h3 {
       margin: 0 0 12px !important;
-      font-size: 21px !important;
+      font-size: 23px !important;
       line-height: 1.15 !important;
       color: #fff !important;
     }
@@ -157,88 +158,42 @@
     }
 
     .slider-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      margin-top: 36px;
+      display: none !important;
     }
 
-    .slider-btn {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .slider-btn:hover {
-      background: #ff6b35;
-      border-color: #ff6b35;
-      transform: translateY(-3px);
-    }
-
-    .slider-dots {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .slider-dots button,
-    .slider-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 255, 255, 0.25);
-      cursor: pointer;
-    }
-
-    .slider-dots button.active,
-    .slider-dot.active {
-      width: 22px;
-      border-radius: 999px;
-      background: #ff6b35;
-    }
-
-    @media (max-width: 1150px) {
-      .work-card {
-        flex: 0 0 calc((100% - 24px) / 2) !important;
+    @media (max-width: 950px) {
+      .work-slider-track {
+        grid-template-columns: 1fr !important;
       }
 
-      .work-thumb {
-        height: 170px !important;
+      .work-card {
+        height: 250px !important;
       }
     }
 
     @media (max-width: 650px) {
       .work {
-        padding: 80px 0;
+        padding: 80px 0 !important;
       }
 
       .work .container {
         width: min(100% - 32px, 100%) !important;
       }
 
-      .work-slider-track {
-        gap: 18px !important;
+      .work-card {
+        height: auto !important;
       }
 
-      .work-card {
-        flex: 0 0 88% !important;
-        min-height: 360px !important;
+      .work-card-inner {
+        grid-template-columns: 1fr !important;
       }
 
       .work-thumb {
-        height: 155px !important;
+        height: 190px !important;
       }
 
       .work-meta {
-        padding: 20px !important;
-        min-height: 185px !important;
+        padding: 22px !important;
       }
     }
   </style>
